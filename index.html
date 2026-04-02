@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ASI Jura (Aide et Support Informatique) - Interventions a domicile Canton du Jura. Tournees cantons NE, BE, VD, FR, GE, VS. Assistance a distance toute la Suisse romande. Specialiste seniors. Devis gratuit.">
+<title>ASI Jura - Aide et Support Informatique | Jura, Neuchatel, Lausanne, Geneve, Suisse romande</title>
+<style>
+:root {
+  --navy:  #1c2b4a;
+  --navy2: #243560;
+  --gold:  #f2c94c;
+  --gold2: #c9a227;
+  --green: #1e4d35;
+  --cream: #faf7f2;
+  --white: #ffffff;
+  --gray:  #64748b;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans:  'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--sans); background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 999; background: rgba(28,43,74,0.97); backdrop-filter: blur(16px); height: 66px; display: flex; align-items: center; justify-content: space-between; padding: 0 6%; border-bottom: 1px solid rgba(242,201,76,0.2); }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-box { width: 38px; height: 38px; border-radius: 9px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 13px; color: var(--navy); }
+.logo-text { font-family: var(--serif); font-size: 17px; font-weight: 700; color: #fff; }
+.logo-sub { font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 22px; list-style: none; }
+.nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 13px; font-weight: 500; transition: color .2s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-btn { background: var(--gold); color: var(--navy); padding: 9px 20px; border-radius: 8px; font-weight: 700; font-size: 13px; text-decoration: none; transition: all .2s; white-space: nowrap; }
+.nav-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+@media(max-width: 900px) { .nav-links { display: none; } nav { padding: 0 4%; } }
+
+.hero { min-height: 100vh; background: linear-gradient(150deg, #1c2b4a 0%, #243560 45%, #1e4d35 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 110px 6% 70px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(242,201,76,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(30,77,53,0.3) 0%, transparent 40%); }
+.hero > * { position: relative; }
+.hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(242,201,76,0.12); border: 1px solid rgba(242,201,76,0.35); color: var(--gold); padding: 7px 18px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; animation: fadeUp .6s ease both; }
+.hero-acronym { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 14px; animation: fadeUp .6s .08s ease both; }
+.hero h1 { font-family: var(--serif); font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 22px; animation: fadeUp .6s .15s ease both; }
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-desc { font-size: clamp(1rem, 1.8vw, 1.1rem); color: rgba(255,255,255,0.72); max-width: 560px; line-height: 1.75; margin-bottom: 40px; animation: fadeUp .6s .25s ease both; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; animation: fadeUp .6s .35s ease both; }
+.btn-gold { background: var(--gold); color: var(--navy); padding: 14px 30px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: all .2s; box-shadow: 0 6px 24px rgba(242,201,76,0.3); cursor: pointer; border: none; font-family: var(--sans); }
+.btn-gold:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(242,201,76,0.4); }
+.btn-ghost { background: rgba(255,255,255,0.08); color: #fff; border: 1.5px solid rgba(255,255,255,0.25); padding: 14px 30px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; transition: all .2s; }
+.btn-ghost:hover { background: rgba(255,255,255,0.15); transform: translateY(-3px); }
+.hero-stats { display: flex; gap: 48px; margin-top: 64px; animation: fadeUp .6s .45s ease both; flex-wrap: wrap; justify-content: center; }
+.stat-num { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; color: var(--gold); }
+.stat-lbl { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 5px; }
+
+.garanties { background: var(--navy); padding: 22px 6%; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.garanties-inner { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+.garantie { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.82); font-size: 0.88rem; font-weight: 600; }
+
+section { padding: 80px 6%; }
+.tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold2); margin-bottom: 12px; display: block; }
+.title { font-family: var(--serif); font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 14px; color: var(--navy); }
+.sub { font-size: 0.97rem; color: var(--gray); line-height: 1.75; max-width: 540px; margin-bottom: 48px; }
+
+.why { background: var(--white); }
+.why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+.why-card { background: var(--cream); border-radius: 14px; padding: 24px 20px; border-left: 3px solid var(--gold); transition: transform .25s, box-shadow .25s; }
+.why-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(28,43,74,0.1); }
+.why-icon { font-size: 1.7rem; margin-bottom: 12px; }
+.why-card h3 { font-size: 0.93rem; font-weight: 700; margin-bottom: 6px; }
+.why-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.6; }
+
+.services { background: var(--cream); }
+.srv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.srv-card { background: var(--white); border-radius: 16px; padding: 26px 22px; border: 1.5px solid rgba(28,43,74,0.09); transition: all .25s; position: relative; overflow: hidden; }
+.srv-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.srv-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(28,43,74,0.09); }
+.srv-card:hover::after { transform: scaleX(1); }
+.srv-ico { width: 44px; height: 44px; border-radius: 11px; background: rgba(242,201,76,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px; }
+.srv-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+.srv-list { list-style: none; }
+.srv-list li { font-size: 0.83rem; color: var(--gray); padding: 4px 0; display: flex; gap: 7px; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.srv-list li:last-child { border: none; }
+.srv-list li::before { content: '\2192'; color: var(--gold2); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+.tarifs { background: var(--white); }
+.tarifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+.t-card { background: var(--cream); border-radius: 16px; padding: 28px 22px; border-top: 3px solid var(--gold); transition: all .25s; }
+.t-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(28,43,74,0.1); }
+.t-ico { font-size: 1.8rem; margin-bottom: 14px; }
+.t-card h3 { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
+.t-rows { list-style: none; }
+.t-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(28,43,74,0.07); font-size: 0.86rem; }
+.t-row:last-child { border: none; }
+.t-lbl { color: var(--gray); }
+.t-price { font-family: var(--serif); font-weight: 700; color: var(--navy); font-size: 0.93rem; }
+.t-price.free { color: #16a34a; }
+.t-note { margin-top: 12px; font-size: 0.78rem; color: var(--gray); font-style: italic; }
+
+.abos { background: var(--navy); }
+.abos .title { color: #fff; }
+.abos .sub { color: rgba(255,255,255,0.6); }
+.abos .tag { color: var(--gold); }
+.abos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; margin-bottom: 36px; }
+.abo-card { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 32px 26px; transition: all .25s; position: relative; }
+.abo-card.star { background: var(--gold); border-color: var(--gold); }
+.abo-card.star .abo-name { color: rgba(28,43,74,0.7); }
+.abo-card.star .abo-price { color: var(--navy); }
+.abo-card.star .abo-period { color: rgba(28,43,74,0.6); }
+.abo-card.star .abo-feat { color: var(--navy); border-bottom-color: rgba(28,43,74,0.1); }
+.abo-card.star .abo-feat::before { color: var(--navy); }
+.abo-card.star .abo-feat.no { color: rgba(28,43,74,0.35); }
+.abo-card:hover { transform: translateY(-5px); box-shadow: 0 20px 44px rgba(0,0,0,0.3); }
+.abo-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 50px; white-space: nowrap; }
+.abo-name { font-size: 0.75rem; font-weight: 700; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.abo-price { font-family: var(--serif); font-size: 2.8rem; font-weight: 700; color: #fff; line-height: 1; }
+.abo-price span { font-size: 0.95rem; font-weight: 500; }
+.abo-period { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin: 8px 0 22px; }
+.abo-feats { list-style: none; margin-bottom: 24px; }
+.abo-feat { font-size: 0.85rem; color: rgba(255,255,255,0.8); padding: 6px 0; display: flex; gap: 9px; align-items: flex-start; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.abo-feat:last-child { border: none; }
+.abo-feat::before { content: '\2713'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+.abo-feat.no { color: rgba(255,255,255,0.3); }
+.abo-feat.no::before { content: '\2013'; color: rgba(255,255,255,0.2); }
+.abo-cta { display: block; text-align: center; background: rgba(255,255,255,0.12); color: #fff; padding: 11px; border-radius: 9px; font-weight: 700; font-size: 0.88rem; cursor: pointer; border: none; width: 100%; font-family: var(--sans); transition: all .2s; }
+.abo-card.star .abo-cta { background: var(--navy); color: var(--gold); }
+.abo-cta:hover { background: rgba(255,255,255,0.2); }
+.abo-card.star .abo-cta:hover { background: #0d1a30; }
+.abo-note { background: rgba(242,201,76,0.1); border: 1px solid rgba(242,201,76,0.25); border-radius: 12px; padding: 20px 24px; text-align: center; }
+.abo-note p { color: rgba(255,255,255,0.8); font-size: 0.92rem; line-height: 1.7; }
+.abo-note strong { color: var(--gold); }
+
+.communaute { background: var(--cream); }
+.com-box { background: linear-gradient(135deg, #1a3a6b 0%, #1e4d35 100%); border-radius: 20px; padding: 44px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 44px; align-items: center; }
+.com-box h3 { font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+.com-box h3 em { color: var(--gold); font-style: normal; }
+.com-left p { color: rgba(255,255,255,0.72); line-height: 1.75; font-size: 0.93rem; margin-bottom: 20px; }
+.com-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.com-pill { background: rgba(242,201,76,0.15); border: 1px solid rgba(242,201,76,0.3); color: var(--gold); padding: 5px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+.com-access { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.com-acc { border-radius: 10px; padding: 12px; text-align: center; }
+.com-acc.no { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+.com-acc.yes { background: rgba(242,201,76,0.12); border: 1px solid rgba(242,201,76,0.3); }
+.com-acc .pack { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+.com-acc.no .pack { color: rgba(255,255,255,0.35); }
+.com-acc.yes .pack { color: var(--gold); }
+.com-acc .ico { font-size: 1.1rem; }
+.com-right { display: flex; flex-direction: column; gap: 12px; }
+.com-card { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; }
+.com-card .ico { font-size: 1.4rem; flex-shrink: 0; }
+.com-card h4 { color: var(--gold); font-size: 0.88rem; font-weight: 700; margin-bottom: 3px; }
+.com-card p { color: rgba(255,255,255,0.62); font-size: 0.8rem; line-height: 1.55; }
+@media(max-width: 768px) { .com-box { grid-template-columns: 1fr; padding: 28px 22px; } }
+
+.seniors { background: var(--white); }
+.seniors-box { background: linear-gradient(140deg, var(--navy) 0%, var(--navy2) 50%, var(--green) 100%); border-radius: 20px; padding: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 40px; }
+.seniors-box h3 { font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+.seniors-box h3 em { color: var(--gold); font-style: normal; }
+.seniors-left p { color: rgba(255,255,255,0.72); line-height: 1.75; font-size: 0.93rem; }
+.seniors-pts { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+.seniors-pts li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.82); font-size: 0.88rem; }
+.seniors-pts li .check { width: 24px; height: 24px; border-radius: 50%; background: rgba(242,201,76,0.18); border: 1.5px solid rgba(242,201,76,0.5); display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; color: var(--gold); }
+.seniors-cards { display: flex; flex-direction: column; gap: 12px; }
+.s-card { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 16px; display: flex; gap: 12px; align-items: flex-start; }
+.s-card .ico { font-size: 1.4rem; flex-shrink: 0; }
+.s-card h4 { color: var(--gold); font-size: 0.88rem; font-weight: 700; margin-bottom: 3px; }
+.s-card p { color: rgba(255,255,255,0.65); font-size: 0.8rem; line-height: 1.55; }
+.ems-box { background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%); border-radius: 16px; padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.ems-box h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.ems-box p { color: rgba(28,43,74,0.75); font-size: 0.9rem; line-height: 1.6; max-width: 460px; }
+.ems-badge { background: var(--navy); border-radius: 12px; padding: 18px 24px; text-align: center; flex-shrink: 0; }
+.ems-price { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--gold); }
+.ems-lbl { color: rgba(255,255,255,0.6); font-size: 0.75rem; margin-top: 4px; line-height: 1.5; }
+.ems-cta { display: inline-block; margin-top: 10px; background: var(--gold); color: var(--navy); padding: 7px 16px; border-radius: 7px; font-weight: 700; font-size: 0.82rem; cursor: pointer; border: none; font-family: var(--sans); transition: all .2s; }
+.ems-cta:hover { background: #fff; }
+@media(max-width: 768px) { .seniors-box { grid-template-columns: 1fr; padding: 28px 20px; } .ems-box { flex-direction: column; padding: 24px 20px; } }
+
+.zones { background: var(--cream); }
+.zones-subtitle { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; margin-bottom: 18px; color: var(--navy); }
+.zones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-bottom: 36px; }
+.zone-card { background: var(--white); border-radius: 14px; padding: 20px 18px; border-top: 3px solid transparent; transition: all .25s; }
+.zone-card.z1 { border-top-color: #22c55e; }
+.zone-card.z2 { border-top-color: var(--gold); }
+.zone-card.z3 { border-top-color: #f97316; }
+.zone-card.z4 { border-top-color: var(--gray); }
+.zone-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(28,43,74,0.08); }
+.zone-pill { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 50px; margin-bottom: 10px; }
+.z1 .zone-pill { background: rgba(34,197,94,0.12); color: #16a34a; }
+.z2 .zone-pill { background: rgba(242,201,76,0.15); color: var(--gold2); }
+.z3 .zone-pill { background: rgba(249,115,22,0.12); color: #ea580c; }
+.z4 .zone-pill { background: rgba(100,116,139,0.12); color: var(--gray); }
+.zone-card h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 5px; }
+.zone-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.55; }
+.zone-price { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; margin-top: 8px; color: var(--navy); }
+.zone-info { background: rgba(242,201,76,0.1); border: 1px solid rgba(242,201,76,0.3); border-radius: 12px; padding: 18px 22px; margin-bottom: 36px; }
+.zone-info p { font-size: 0.87rem; color: var(--navy); line-height: 1.7; }
+.distance-box { background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%); border-radius: 16px; padding: 32px 36px; }
+.distance-box h4 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.distance-box p { color: rgba(255,255,255,0.68); font-size: 0.88rem; line-height: 1.7; margin-bottom: 20px; }
+.city-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.city-pill { background: rgba(242,201,76,0.15); border: 1px solid rgba(242,201,76,0.3); color: var(--gold); padding: 5px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+
+.launch { background: linear-gradient(135deg, var(--green) 0%, #163d28 100%); text-align: center; padding: 64px 6%; }
+.launch-inner { max-width: 620px; margin: 0 auto; }
+.launch-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(242,201,76,0.15); border: 1.5px solid rgba(242,201,76,0.4); color: var(--gold); padding: 6px 16px; border-radius: 50px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+.launch h2 { font-family: var(--serif); font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.12; }
+.launch h2 em { color: var(--gold); font-style: normal; }
+.launch p { color: rgba(255,255,255,0.72); font-size: 0.97rem; line-height: 1.7; margin-bottom: 28px; }
+
+.contact { background: var(--white); }
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+.contact-info-p { color: var(--gray); line-height: 1.75; margin-bottom: 28px; font-size: 0.95rem; }
+.c-detail { display: flex; align-items: center; gap: 13px; padding: 12px 0; border-bottom: 1px solid rgba(28,43,74,0.08); }
+.c-detail:last-child { border: none; }
+.c-ico { width: 40px; height: 40px; border-radius: 10px; background: rgba(242,201,76,0.13); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+.c-lbl { font-size: 0.75rem; color: var(--gray); margin-bottom: 2px; }
+.c-val { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+.c-val a { color: var(--navy); text-decoration: none; }
+.c-val a:hover { color: var(--gold2); }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.fg { display: flex; flex-direction: column; gap: 5px; }
+.fg label { font-size: 0.82rem; font-weight: 700; color: var(--navy); }
+.fg input, .fg select, .fg textarea { padding: 11px 14px; border-radius: 9px; border: 1.5px solid rgba(28,43,74,0.14); font-family: var(--sans); font-size: 0.91rem; color: var(--navy); background: var(--cream); transition: border-color .2s; width: 100%; }
+.fg input:focus, .fg select:focus, .fg textarea:focus { outline: none; border-color: var(--gold); background: #fff; }
+.fg textarea { resize: vertical; min-height: 100px; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.hp { display: none !important; }
+.fsub { background: var(--navy); color: #fff; padding: 13px; border-radius: 9px; border: none; font-family: var(--sans); font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all .2s; }
+.fsub:hover:not(:disabled) { background: var(--navy2); transform: translateY(-2px); }
+.fsub:disabled { opacity: 0.6; cursor: not-allowed; }
+.fnote { font-size: 0.76rem; color: var(--gray); text-align: center; }
+@media(max-width: 768px) { .contact-wrap { grid-template-columns: 1fr; gap: 32px; } .frow { grid-template-columns: 1fr; } }
+
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9999; align-items: center; justify-content: center; padding: 16px; }
+.modal-overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 18px; max-width: 680px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 44px 40px; position: relative; }
+.modal h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.modal-date { font-size: 0.8rem; color: var(--gray); margin-bottom: 24px; display: block; }
+.modal h3 { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--navy); margin: 20px 0 7px; }
+.modal p, .modal li { font-size: 0.88rem; color: #444; line-height: 1.75; }
+.modal ul { padding-left: 16px; margin-top: 5px; }
+.modal-close { position: sticky; top: 0; float: right; background: var(--navy); color: #fff; border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+@media(max-width: 600px) { .modal { padding: 24px 18px; } }
+
+.wa-popup-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9998; align-items: center; justify-content: center; padding: 16px; }
+.wa-popup-overlay.open { display: flex; }
+.wa-popup { background: #fff; border-radius: 20px; max-width: 420px; width: 100%; padding: 36px 32px; position: relative; }
+.wa-popup h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.wa-popup-desc { font-size: 0.85rem; color: var(--gray); margin-bottom: 20px; line-height: 1.6; }
+.wa-popup .fg { margin-bottom: 12px; }
+.wa-popup-close { position: absolute; top: 14px; right: 14px; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--gray); line-height: 1; }
+.wa-send { background: #25d366; color: #fff; padding: 13px; border-radius: 10px; border: none; font-family: var(--sans); font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; transition: all .2s; margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.wa-send:hover { background: #1da851; transform: translateY(-2px); }
+
+footer { background: var(--navy); color: rgba(255,255,255,0.55); padding: 40px 6% 22px; }
+.footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+.footer-logo { display: flex; align-items: center; gap: 10px; }
+.footer-logo-box { width: 34px; height: 34px; border-radius: 8px; background: var(--gold); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; font-size: 12px; color: var(--navy); }
+.footer-logo-name { font-family: var(--serif); font-weight: 700; font-size: 15px; color: #fff; }
+.footer-logo-sub { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 1px; text-transform: uppercase; }
+.footer-nav { display: flex; gap: 18px; flex-wrap: wrap; }
+.footer-nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color .2s; }
+.footer-nav a:hover { color: var(--gold); }
+.footer-legal { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 14px; }
+.footer-legal button { background: none; border: none; color: rgba(255,255,255,0.4); font-size: 12px; cursor: pointer; text-decoration: underline; font-family: var(--sans); transition: color .2s; padding: 0; }
+.footer-legal button:hover { color: var(--gold); }
+.footer-btm { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; font-size: 12px; text-align: center; }
+.footer-btm a { color: var(--gold); text-decoration: none; }
+
+.wa-float { position: fixed; bottom: 26px; right: 26px; z-index: 997; width: 56px; height: 56px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; cursor: pointer; border: none; box-shadow: 0 6px 24px rgba(37,211,102,0.45); animation: waPulse 2.5s infinite; transition: transform .2s; }
+.wa-float:hover { transform: scale(1.1); }
+
+@keyframes waPulse { 0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); } 50% { box-shadow: 0 6px 24px rgba(37,211,102,0.45), 0 0 0 10px rgba(37,211,102,0.1); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .5s ease, transform .5s ease; }
+.reveal.on { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-box">ASI</div>
+    <div>
+      <div class="logo-text">ASI Jura</div>
+      <div class="logo-sub">Aide &amp; Support Informatique</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#abonnements">Abonnements</a></li>
+    <li><a href="#seniors">Seniors &amp; EMS</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+41798334552" class="nav-btn">📞 +41 79 833 45 52</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">📍 Canton du Jura · Suisse romande</div>
+  <p class="hero-acronym">ASI — Aide &amp; Support Informatique</p>
+  <h1>Votre expert<br>informatique<br><em>à domicile</em></h1>
+  <p class="hero-desc">Interventions à domicile dans le Canton du Jura, assistance à distance dans toute la Suisse romande. Service local, humain et efficace.</p>
+  <div class="hero-btns">
+    <button class="btn-gold" onclick="openWA('general')">💬 Nous contacter sur WhatsApp</button>
+    <a href="#services" class="btn-ghost">Voir nos services</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">7j / 7</div><div class="stat-lbl">Disponible toute la semaine</div></div>
+    <div><div class="stat-num">Devis gratuit</div><div class="stat-lbl">Sans engagement</div></div>
+    <div><div class="stat-num">Dès 30 CHF</div><div class="stat-lbl">Assistance à distance</div></div>
+  </div>
+</section>
+
+<!-- GARANTIES -->
+<div class="garanties">
+  <div class="garanties-inner">
+    <div class="garantie">✅ Devis gratuit sans engagement</div>
+    <div class="garantie">✅ Paiement après intervention seulement</div>
+    <div class="garantie">✅ Intervention rapide garantie</div>
+  </div>
+</div>
+
+<!-- POURQUOI -->
+<section class="why">
+  <span class="tag">Pourquoi nous choisir</span>
+  <h2 class="title">Un service pensé pour vous</h2>
+  <p class="sub">Pas de jargon, pas de délai inutile. On se déplace chez vous et on règle le problème.</p>
+  <div class="why-grid">
+    <div class="why-card reveal"><div class="why-icon">🏠</div><h3>À votre domicile</h3><p>On vient chez vous dans le Jura et les environs. Pas besoin de vous déplacer.</p></div>
+    <div class="why-card reveal"><div class="why-icon">💬</div><h3>Explications simples</h3><p>Sans termes compliqués. Vous comprenez ce qu'on fait à chaque étape.</p></div>
+    <div class="why-card reveal"><div class="why-icon">⚡</div><h3>Réponse rapide</h3><p>Par téléphone ou WhatsApp — on répond rapidement 7j/7.</p></div>
+    <div class="why-card reveal"><div class="why-icon">👴</div><h3>Spécialiste seniors</h3><p>On prend le temps qu'il faut. Approche patiente et bienveillante.</p></div>
+    <div class="why-card reveal"><div class="why-icon">💰</div><h3>Devis gratuit</h3><p>On évalue votre besoin sans frais avant d'intervenir.</p></div>
+    <div class="why-card reveal"><div class="why-icon">📍</div><h3>Local &amp; de confiance</h3><p>Basé à Boncourt. Un voisin de confiance, pas un inconnu venu de loin.</p></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <span class="tag">Nos prestations</span>
+  <h2 class="title">Ce qu'on règle pour vous</h2>
+  <p class="sub">De la panne TV au problème de mot de passe, on s'occupe de tous vos appareils.</p>
+  <div class="srv-grid">
+    <div class="srv-card reveal">
+      <div class="srv-ico">📺</div><h3>Télévision</h3>
+      <ul class="srv-list">
+        <li>Problème d'image ou message d'erreur</li>
+        <li>Panne de démarrage ou blocage</li>
+        <li>Installation et configuration TV box</li>
+        <li>Réglage chaînes et télécommande</li>
+      </ul>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-ico">📶</div><h3>Internet &amp; Wi-Fi</h3>
+      <ul class="srv-list">
+        <li>Installation et config du routeur</li>
+        <li>Connexion lente, instable ou coupée</li>
+        <li>Appareils non connectés</li>
+        <li>Extension Wi-Fi dans la maison</li>
+      </ul>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-ico">💻</div><h3>Ordinateur</h3>
+      <ul class="srv-list">
+        <li>PC lent, bloqué ou qui plante</li>
+        <li>Problème de boîte e-mail</li>
+        <li>Sécurité : mots de passe, virus</li>
+        <li>Mise à jour et nettoyage</li>
+      </ul>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-ico">📱</div><h3>Smartphone (Natel)</h3>
+      <ul class="srv-list">
+        <li>Perte ou oubli de mot de passe</li>
+        <li>Configuration d'apps (WhatsApp…)</li>
+        <li>Transfert photos et contacts</li>
+        <li>Problème de connexion internet</li>
+      </ul>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-ico">☎️</div><h3>Téléphone fixe</h3>
+      <ul class="srv-list">
+        <li>Problème de sonnerie ou de ligne</li>
+        <li>Installation et configuration</li>
+        <li>Connexion avec la box internet</li>
+        <li>Dépannage rapide</li>
+      </ul>
+    </div>
+    <div class="srv-card reveal">
+      <div class="srv-ico">🖥️</div><h3>Assistance à distance</h3>
+      <ul class="srv-list">
+        <li>Prise en main PC à distance</li>
+        <li>Contrôle Android à distance</li>
+        <li>Guidage iPhone via FaceTime</li>
+        <li>Disponible toute la Suisse romande</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="tarifs" id="tarifs">
+  <span class="tag">Tarifs à la carte</span>
+  <h2 class="title">Interventions ponctuelles</h2>
+  <p class="sub">Sans abonnement. Devis gratuit avant chaque intervention — pas de mauvaise surprise.</p>
+  <div class="tarifs-grid">
+    <div class="t-card reveal">
+      <div class="t-ico">🏠</div>
+      <h3>Intervention à domicile</h3>
+      <ul class="t-rows">
+        <li class="t-row"><span class="t-lbl">30 minutes</span><span class="t-price">45 CHF</span></li>
+        <li class="t-row"><span class="t-lbl">1 heure</span><span class="t-price">80 CHF</span></li>
+        <li class="t-row"><span class="t-lbl">+ 30 min supplémentaires</span><span class="t-price">+35 CHF</span></li>
+      </ul>
+      <p class="t-note">+ frais de déplacement selon la zone</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-ico">🖥️</div>
+      <h3>Assistance à distance</h3>
+      <ul class="t-rows">
+        <li class="t-row"><span class="t-lbl">30 minutes</span><span class="t-price">30 CHF</span></li>
+        <li class="t-row"><span class="t-lbl">1 heure</span><span class="t-price">50 CHF</span></li>
+        <li class="t-row"><span class="t-lbl">+ 30 min supplémentaires</span><span class="t-price">+20 CHF</span></li>
+      </ul>
+      <p class="t-note">PC, Android ou guidage iPhone via FaceTime</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-ico">🎓</div>
+      <h3>Formation &amp; Cours</h3>
+      <ul class="t-rows">
+        <li class="t-row"><span class="t-lbl">Cours individuel à domicile</span><span class="t-price">80 CHF/h</span></li>
+        <li class="t-row"><span class="t-lbl">Cours collectif EMS</span><span class="t-price">Sur devis</span></li>
+        <li class="t-row"><span class="t-lbl">Contrat établissement</span><span class="t-price">Sur devis</span></li>
+      </ul>
+      <p class="t-note">Adapté au niveau de chaque participant</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-ico">🚗</div>
+      <h3>Frais de déplacement</h3>
+      <ul class="t-rows">
+        <li class="t-row"><span class="t-lbl">Zone 1 — 0 à 10 km</span><span class="t-price free">Offert ✓</span></li>
+        <li class="t-row"><span class="t-lbl">Zone 2 — 10 à 25 km</span><span class="t-price">+20 CHF</span></li>
+        <li class="t-row"><span class="t-lbl">Zone 3 — 25 à 40 km</span><span class="t-price">+35 CHF</span></li>
+        <li class="t-row"><span class="t-lbl">Zone 4 — +40 km</span><span class="t-price">Sur devis</span></li>
+      </ul>
+      <p class="t-note">Boncourt comme point de départ</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABONNEMENTS -->
+<section class="abos" id="abonnements">
+  <span class="tag">Abonnements</span>
+  <h2 class="title">Votre expert toujours disponible</h2>
+  <p class="sub">Sans engagement. Résiliable à tout moment avec 2 mois de préavis.</p>
+  <div class="abos-grid">
+    <div class="abo-card reveal">
+      <div class="abo-name">Pack Essentiel</div>
+      <div class="abo-price">17<span> CHF/mois</span></div>
+      <div class="abo-period">1 session à distance par mois</div>
+      <ul class="abo-feats">
+        <li class="abo-feat">1 session à distance / mois</li>
+        <li class="abo-feat">SMS &amp; WhatsApp 7j/7 🍒</li>
+        <li class="abo-feat">Réponse rapide garantie</li>
+        <li class="abo-feat">-10% sur interventions domicile</li>
+        <li class="abo-feat no">Groupe Facebook VIP</li>
+        <li class="abo-feat no">Visites domicile incluses</li>
+      </ul>
+      <button class="abo-cta" onclick="openWA('essentiel')">Je m'abonne →</button>
+    </div>
+    <div class="abo-card star reveal">
+      <div class="abo-badge">⭐ Le plus populaire</div>
+      <div class="abo-name">Pack Confort</div>
+      <div class="abo-price">33<span> CHF/mois</span></div>
+      <div class="abo-period">1 session toutes les 2 semaines</div>
+      <ul class="abo-feats">
+        <li class="abo-feat">1 session à distance / 2 semaines</li>
+        <li class="abo-feat">SMS &amp; WhatsApp 7j/7 🍒</li>
+        <li class="abo-feat">Réponse rapide garantie</li>
+        <li class="abo-feat">-15% sur interventions domicile</li>
+        <li class="abo-feat">Groupe Facebook VIP ✅</li>
+        <li class="abo-feat no">Visites domicile incluses</li>
+      </ul>
+      <button class="abo-cta" onclick="openWA('confort')">Je m'abonne →</button>
+    </div>
+    <div class="abo-card reveal">
+      <div class="abo-name">Pack Sérénité</div>
+      <div class="abo-price">59<span> CHF/mois</span></div>
+      <div class="abo-period">Sessions à distance illimitées</div>
+      <ul class="abo-feats">
+        <li class="abo-feat">Sessions à distance illimitées</li>
+        <li class="abo-feat">SMS &amp; WhatsApp 7j/7 🍒</li>
+        <li class="abo-feat">Priorité absolue</li>
+        <li class="abo-feat">-20% sur interventions domicile</li>
+        <li class="abo-feat">Groupe Facebook VIP ✅</li>
+        <li class="abo-feat">4 visites à domicile / an incluses</li>
+      </ul>
+      <button class="abo-cta" onclick="openWA('serenite')">Je m'abonne →</button>
+    </div>
+  </div>
+  <div class="abo-note reveal">
+    <p>🔓 <strong>Sans engagement</strong> — Résiliable à tout moment avec <strong>2 mois de préavis</strong>. On mise sur notre qualité, pas sur les contrats.</p>
+  </div>
+</section>
+
+<!-- COMMUNAUTE -->
+<section class="communaute">
+  <span class="tag">Communauté VIP</span>
+  <h2 class="title">La Famille ASI Jura</h2>
+  <p class="sub">Plus qu'un service — une vraie communauté locale pour ne plus jamais être seul face à la technologie.</p>
+  <div class="com-box reveal">
+    <div class="com-left">
+      <h3>Rejoignez notre<br><em>groupe Facebook VIP</em></h3>
+      <p>Astuces numériques, alertes arnaques, entraide entre membres. Un espace privé réservé aux abonnés Confort et Sérénité.</p>
+      <div class="com-pills">
+        <span class="com-pill">💡 Astuces hebdomadaires</span>
+        <span class="com-pill">⚠️ Alertes arnaques</span>
+        <span class="com-pill">❓ Questions &amp; réponses</span>
+      </div>
+      <div class="com-access">
+        <div class="com-acc no"><div class="pack">Essentiel</div><div class="ico">❌</div></div>
+        <div class="com-acc yes"><div class="pack">Confort</div><div class="ico">✅</div></div>
+        <div class="com-acc yes"><div class="pack">Sérénité</div><div class="ico">✅</div></div>
+      </div>
+    </div>
+    <div class="com-right">
+      <div class="com-card"><div class="ico">📅</div><div><h4>Rassemblements réguliers</h4><p>Ateliers numériques ouverts à tous — abonnés ou non. Café offert !</p></div></div>
+      <div class="com-card"><div class="ico">🤝</div><div><h4>Entraide entre membres</h4><p>Les membres s'entraident. Plus d'autonomie au quotidien.</p></div></div>
+      <div class="com-card"><div class="ico">🔔</div><div><h4>Alertes en temps réel</h4><p>Arnaque en cours, nouveau virus… On vous prévient avant que ça arrive.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SENIORS & EMS -->
+<section class="seniors" id="seniors">
+  <span class="tag">Notre spécialité</span>
+  <h2 class="title">Spécialistes seniors &amp; établissements</h2>
+  <p class="sub">Patience, pédagogie et bienveillance. On s'adapte à chaque personne.</p>
+  <div class="seniors-box reveal">
+    <div class="seniors-left">
+      <h3>L'informatique,<br><em>accessible à tous</em></h3>
+      <p>Beaucoup de seniors se sentent dépassés par les nouvelles technologies. Notre mission : vous accompagner pas à pas, sans jugement, à votre rythme.</p>
+      <ul class="seniors-pts">
+        <li><span class="check">✓</span> Explications simples, sans jargon</li>
+        <li><span class="check">✓</span> On répète autant de fois que nécessaire</li>
+        <li><span class="check">✓</span> Mémo écrit laissé après intervention</li>
+        <li><span class="check">✓</span> Disponible par téléphone après la visite</li>
+      </ul>
+    </div>
+    <div class="seniors-cards">
+      <div class="s-card"><div class="ico">📹</div><div><h4>Appels vidéo avec la famille</h4><p>FaceTime, WhatsApp, Zoom… On vous apprend à rester connecté à vos proches.</p></div></div>
+      <div class="s-card"><div class="ico">🔒</div><div><h4>Protection contre les arnaques</h4><p>Faux virus, faux appels… On vous apprend à reconnaître les pièges.</p></div></div>
+      <div class="s-card"><div class="ico">📸</div><div><h4>Photos &amp; souvenirs numériques</h4><p>Sauvegarde et partage de photos — vos souvenirs en sécurité.</p></div></div>
+    </div>
+  </div>
+  <div class="ems-box reveal">
+    <div>
+      <h3>🏠 Cours collectifs en maison de retraite</h3>
+      <p>ASI Jura se déplace dans votre établissement pour animer des <strong>ateliers numériques collectifs</strong>. Jusqu'à 8 résidents par session. Tarif sur devis selon l'établissement et la fréquence.</p>
+    </div>
+    <div class="ems-badge">
+      <div class="ems-price">Sur devis</div>
+      <div class="ems-lbl">Session 1h30<br>jusqu'à 8 résidents<br>Contrat annuel possible</div>
+      <button class="ems-cta" onclick="openWA('ems')">Nous contacter</button>
+    </div>
+  </div>
+</section>
+
+<!-- ZONES -->
+<section class="zones">
+  <span class="tag">Zones d'intervention</span>
+  <h2 class="title">On intervient partout en Suisse romande</h2>
+  <p class="sub">Déplacements à domicile dans le Jura, tournées vers les grandes villes, assistance à distance partout.</p>
+
+  <p class="zones-subtitle">🏠 Interventions à domicile — Jura &amp; environs</p>
+  <div class="zones-grid">
+    <div class="zone-card z1 reveal"><span class="zone-pill">Zone 1</span><h4>Boncourt &amp; alentours</h4><p>Rayon de 10 km autour de Boncourt</p><div class="zone-price">Déplacement offert ✓</div></div>
+    <div class="zone-card z2 reveal"><span class="zone-pill">Zone 2</span><h4>Ajoie / Porrentruy</h4><p>Entre 10 et 25 km de Boncourt</p><div class="zone-price">+20 CHF</div></div>
+    <div class="zone-card z3 reveal"><span class="zone-pill">Zone 3</span><h4>Delémont / Vallée</h4><p>Entre 25 et 40 km de Boncourt</p><div class="zone-price">+35 CHF</div></div>
+    <div class="zone-card z4 reveal"><span class="zone-pill">Zone 4</span><h4>Au-delà de 40 km</h4><p>Région éloignée ou frontalier</p><div class="zone-price">Sur devis</div></div>
+  </div>
+
+  <p class="zones-subtitle">🚗 Tournées programmées — Par canton</p>
+  <div class="zones-grid">
+    <div class="zone-card z1 reveal"><span class="zone-pill">Canton NE</span><h4>Neuchâtel</h4><p>Neuchâtel, La Chaux-de-Fonds, Le Locle</p><div class="zone-price">Sur devis</div></div>
+    <div class="zone-card z2 reveal"><span class="zone-pill">Canton BE</span><h4>Berne</h4><p>Bienne, Moutier, Tavannes</p><div class="zone-price">Sur devis</div></div>
+    <div class="zone-card z3 reveal"><span class="zone-pill">Canton VD</span><h4>Vaud</h4><p>Lausanne, Yverdon, Morges, Nyon</p><div class="zone-price">Sur devis</div></div>
+    <div class="zone-card z2 reveal"><span class="zone-pill">Canton FR</span><h4>Fribourg</h4><p>Fribourg, Bulle, Romont</p><div class="zone-price">Sur devis</div></div>
+    <div class="zone-card z3 reveal"><span class="zone-pill">Canton GE</span><h4>Genève</h4><p>Genève, Carouge, Meyrin, Vernier</p><div class="zone-price">Sur devis</div></div>
+    <div class="zone-card z4 reveal"><span class="zone-pill">Canton VS</span><h4>Valais</h4><p>Sion, Martigny, Sierre</p><div class="zone-price">Sur devis</div></div>
+  </div>
+  <div class="zone-info reveal">
+    <p>💡 <strong>Comment fonctionnent les tournées ?</strong> Nous regroupons plusieurs clients dans la même ville le même jour. Contactez-nous pour être inclus dans la prochaine tournée de votre région.</p>
+  </div>
+
+  <p class="zones-subtitle">🖥️ Assistance à distance — Toute la Suisse romande</p>
+  <div class="distance-box reveal">
+    <h4>De Genève à Bâle — sans bouger de chez vous</h4>
+    <p>Nous intervenons sur votre PC ou Android peu importe où vous êtes en Suisse romande. Pas de frais de déplacement, même efficacité.</p>
+    <div class="city-pills">
+      <span class="city-pill">Genève</span>
+      <span class="city-pill">Lausanne</span>
+      <span class="city-pill">Neuchâtel</span>
+      <span class="city-pill">Bienne</span>
+      <span class="city-pill">Fribourg</span>
+      <span class="city-pill">Berne</span>
+      <span class="city-pill">Sion</span>
+      <span class="city-pill">Yverdon</span>
+      <span class="city-pill">La Chaux-de-Fonds</span>
+      <span class="city-pill">Moutier</span>
+      <span class="city-pill">Martigny</span>
+    </div>
+    <button class="btn-gold" onclick="openWA('distance')" style="font-size:0.9rem;padding:12px 24px;">💬 Demander une intervention à distance</button>
+  </div>
+</section>
+
+<!-- LANCEMENT -->
+<section class="launch">
+  <div class="launch-inner reveal">
+    <div class="launch-badge">🎁 Offre spéciale de lancement</div>
+    <h2>−20 CHF pour les<br><em>10 premiers clients</em></h2>
+    <p>20 CHF de réduction sur votre première intervention. Places limitées — dépêchez-vous !</p>
+    <button class="btn-gold" onclick="openWA('lancement')">Réserver via WhatsApp</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <span class="tag">Nous contacter</span>
+      <h2 class="title">Parlons de votre problème</h2>
+      <p class="contact-info-p">Décrivez-nous votre souci, on vous répond rapidement et on fixe un rendez-vous à votre convenance.</p>
+      <div class="c-detail"><div class="c-ico">📞</div><div><div class="c-lbl">Téléphone &amp; WhatsApp</div><div class="c-val"><a href="tel:+41798334552">+41 79 833 45 52</a></div></div></div>
+      <div class="c-detail"><div class="c-ico">✉️</div><div><div class="c-lbl">Email</div><div class="c-val"><a href="mailto:asi.jura@yahoo.com">asi.jura@yahoo.com</a></div></div></div>
+      <div class="c-detail"><div class="c-ico">📍</div><div><div class="c-lbl">Adresse</div><div class="c-val">32 Route de France, 2926 Boncourt</div></div></div>
+      <div class="c-detail"><div class="c-ico">🕐</div><div><div class="c-lbl">Disponibilité</div><div class="c-val">7 jours sur 7 — Sur rendez-vous</div></div></div>
+    </div>
+    <div class="reveal">
+      <form class="contact-form" onsubmit="submitForm(event)" novalidate>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off">
+        <div class="frow">
+          <div class="fg"><label>Prénom *</label><input type="text" id="c-prenom" placeholder="Jean" required></div>
+          <div class="fg"><label>Nom *</label><input type="text" id="c-nom" placeholder="Dupont" required></div>
+        </div>
+        <div class="fg"><label>Téléphone *</label><input type="tel" id="c-tel" placeholder="+41 XX XXX XX XX" required></div>
+        <div class="fg"><label>Ville *</label><input type="text" id="c-ville" placeholder="Ex : Porrentruy" required></div>
+        <div class="fg">
+          <label>Type de demande</label>
+          <select id="c-prob">
+            <option value="">— Sélectionnez —</option>
+            <optgroup label="Interventions ponctuelles">
+              <option>Télévision</option>
+              <option>Internet / Wi-Fi</option>
+              <option>Ordinateur</option>
+              <option>Smartphone (Natel)</option>
+              <option>Téléphone fixe</option>
+              <option>Assistance à distance</option>
+            </optgroup>
+            <optgroup label="Formation">
+              <option>Cours individuel — 80 CHF/h</option>
+              <option>Cours collectif EMS — Sur devis</option>
+            </optgroup>
+            <optgroup label="Abonnements">
+              <option>Pack Essentiel — 17 CHF/mois</option>
+              <option>Pack Confort — 33 CHF/mois</option>
+              <option>Pack Sérénité — 59 CHF/mois</option>
+            </optgroup>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="fg"><label>Décrivez votre demande</label><textarea id="c-msg" placeholder="Ex : ma TV affiche un message d'erreur depuis ce matin…"></textarea></div>
+        <button type="submit" class="fsub" id="submitBtn">Envoyer ma demande →</button>
+        <p class="fnote">Ou appelez directement le <strong>+41 79 833 45 52</strong></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <div class="footer-logo-box">ASI</div>
+      <div>
+        <div class="footer-logo-name">ASI Jura</div>
+        <div class="footer-logo-sub">Aide &amp; Support Informatique</div>
+      </div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#services">Services</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#abonnements">Abonnements</a>
+      <a href="#seniors">Seniors &amp; EMS</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="footer-legal">
+    <button onclick="document.getElementById('modal-mentions').classList.add('open')">Mentions légales</button>
+    <button onclick="document.getElementById('modal-confidentialite').classList.add('open')">Politique de confidentialité</button>
+    <button onclick="document.getElementById('modal-cgv').classList.add('open')">CGV</button>
+  </div>
+  <div class="footer-btm">
+    © 2025 ASI Jura · CHE-333.242.439 · Boncourt, Canton du Jura ·
+    <a href="tel:+41798334552">+41 79 833 45 52</a> ·
+    <a href="mailto:asi.jura@yahoo.com">asi.jura@yahoo.com</a>
+  </div>
+</footer>
+
+<!-- POPUP WA -->
+<div class="wa-popup-overlay" id="wa-popup">
+  <div class="wa-popup">
+    <button class="wa-popup-close" onclick="closeWAPopup()">✕</button>
+    <h3>💬 Contacter ASI Jura</h3>
+    <p class="wa-popup-desc">Remplissez en 20 secondes — votre message sera prêt sur WhatsApp !</p>
+    <div class="fg"><label>Votre prénom *</label><input type="text" id="wa-prenom" placeholder="Jean"></div>
+    <div class="fg" style="margin-top:12px"><label>Votre ville *</label><input type="text" id="wa-ville" placeholder="Ex : Porrentruy"></div>
+    <div class="fg" style="margin-top:12px">
+      <label>Votre problème *</label>
+      <select id="wa-prob">
+        <option value="">— Sélectionnez —</option>
+        <option>Télévision</option>
+        <option>Internet / Wi-Fi</option>
+        <option>Ordinateur</option>
+        <option>Smartphone (Natel)</option>
+        <option>Téléphone fixe</option>
+        <option>Assistance à distance</option>
+        <option>Cours individuel à domicile</option>
+        <option>Pack Essentiel — 17 CHF/mois</option>
+        <option>Pack Confort — 33 CHF/mois</option>
+        <option>Pack Sérénité — 59 CHF/mois</option>
+        <option>Cours collectif EMS</option>
+        <option>Offre de lancement -20 CHF</option>
+        <option>Tournée dans ma ville</option>
+        <option>Autre</option>
+      </select>
+    </div>
+    <button class="wa-send" onclick="sendWAPopup()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Ouvrir WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- MODALES LEGALES -->
+<div class="modal-overlay" id="modal-mentions">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-mentions').classList.remove('open')">✕</button>
+    <h2>Mentions légales</h2>
+    <span class="modal-date">Conformément au droit suisse</span>
+    <h3>Responsable du site</h3>
+    <p>Akbuz Ahmet · Raison individuelle<br>32 Route de France · 2926 Boncourt · Canton du Jura, Suisse</p>
+    <h3>Numéro IDE</h3><p>CHE-333.242.439</p>
+    <h3>Contact</h3><p>Téléphone : +41 79 833 45 52 · Email : asi.jura@yahoo.com</p>
+    <h3>Activité</h3><p>Aide et support informatique à domicile, assistance à distance, formation numérique auprès des particuliers, seniors et établissements médico-sociaux dans le Canton du Jura et toute la Suisse romande.</p>
+    <h3>Hébergement</h3><p>Vercel Inc., 340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis</p>
+    <h3>Propriété intellectuelle</h3><p>L'ensemble du contenu de ce site est la propriété exclusive d'Akbuz Ahmet / ASI Jura. Toute reproduction sans autorisation écrite préalable est interdite.</p>
+    <h3>Droit applicable</h3><p>Ce site est soumis au droit suisse. Tout litige relève de la compétence exclusive des tribunaux du Canton du Jura.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-confidentialite">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-confidentialite').classList.remove('open')">✕</button>
+    <h2>Politique de confidentialité</h2>
+    <span class="modal-date">Conforme à la nLPD suisse (en vigueur depuis le 1er septembre 2023)</span>
+    <h3>Responsable du traitement</h3><p>Akbuz Ahmet · ASI Jura · 32 Route de France, 2926 Boncourt · asi.jura@yahoo.com</p>
+    <h3>Données collectées</h3><p>Via le formulaire de contact : prénom, nom, téléphone, ville, type de demande, description. Ces données sont transmises directement via WhatsApp et ne sont pas stockées sur un serveur tiers.</p>
+    <h3>Finalité</h3>
+    <ul>
+      <li>Répondre à votre demande de contact ou de devis</li>
+      <li>Organiser les interventions à domicile ou à distance</li>
+      <li>Gérer la relation client dans le cadre d'un abonnement</li>
+    </ul>
+    <h3>Base légale</h3><p>Consentement (envoi volontaire du formulaire) et exécution d'un contrat de service.</p>
+    <h3>Durée de conservation</h3><p>Le temps nécessaire à la réalisation de la prestation, au maximum 5 ans.</p>
+    <h3>Partage des données</h3><p>Vos données ne sont jamais vendues, louées ou transmises à des tiers à des fins commerciales.</p>
+    <h3>Vos droits (nLPD)</h3>
+    <ul>
+      <li>Droit d'accès à vos données</li>
+      <li>Droit de rectification</li>
+      <li>Droit à l'effacement</li>
+      <li>Droit d'opposition</li>
+      <li>Droit à la portabilité</li>
+    </ul>
+    <p style="margin-top:8px">Pour exercer ces droits : asi.jura@yahoo.com</p>
+    <h3>Cookies</h3><p>Ce site n'utilise aucun cookie de suivi ou de publicité.</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-cgv">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-cgv').classList.remove('open')">✕</button>
+    <h2>Conditions Générales de Vente</h2>
+    <span class="modal-date">ASI Jura · Akbuz Ahmet · CHE-333.242.439 · Version 2025</span>
+    <h3>1. Objet</h3><p>Les présentes CGV régissent les relations entre ASI Jura et tout client ayant recours à ses services.</p>
+    <h3>2. Devis et commande</h3><p>Toute intervention fait l'objet d'un devis gratuit communiqué avant le début des travaux. L'acceptation verbale ou écrite du devis vaut commande ferme.</p>
+    <h3>3. Tarifs</h3><p>Les tarifs sont indiqués en francs suisses (CHF). Les frais de déplacement sont facturés selon les zones définies sur le site.</p>
+    <h3>4. Paiement</h3><p>Le paiement est dû à la fin de chaque intervention. Modes acceptés : espèces, virement bancaire, TWINT.</p>
+    <h3>5. Abonnements</h3><p>Sans engagement de durée minimale. Résiliable à tout moment avec un préavis de 2 mois par écrit. Les sessions non utilisées dans le mois ne sont pas reportées.</p>
+    <h3>6. Assistance à distance</h3><p>Toute prise en main à distance est effectuée uniquement avec le consentement explicite du client. Le client peut interrompre la session à tout moment.</p>
+    <h3>7. Responsabilité</h3><p>La responsabilité d'ASI Jura est limitée au montant de la prestation facturée. Il est recommandé d'effectuer une sauvegarde avant toute intervention.</p>
+    <h3>8. Confidentialité</h3><p>ASI Jura s'engage à traiter avec la plus stricte confidentialité toutes les informations auxquelles il accède lors de ses interventions.</p>
+    <h3>9. Droit applicable</h3><p>Les présentes CGV sont soumises au droit suisse. Les tribunaux du Canton du Jura sont compétents en cas de litige.</p>
+  </div>
+</div>
+
+<!-- WA FLOAT -->
+<button class="wa-float" onclick="openWA('general')" title="Contacter sur WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<script>
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+document.querySelectorAll('.modal-overlay').forEach(function(o) {
+  o.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('open'); });
+});
+document.getElementById('wa-popup').addEventListener('click', function(e) {
+  if (e.target === this) closeWAPopup();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m) { m.classList.remove('open'); });
+    closeWAPopup();
+  }
+});
+
+var waContext = 'general';
+
+function openWA(ctx) {
+  waContext = ctx;
+  var prob = document.getElementById('wa-prob');
+  var presets = {
+    'essentiel': 'Pack Essentiel — 17 CHF/mois',
+    'confort': 'Pack Confort — 33 CHF/mois',
+    'serenite': 'Pack Sérénité — 59 CHF/mois',
+    'lancement': 'Offre de lancement -20 CHF',
+    'ems': 'Cours collectif EMS',
+    'distance': 'Assistance à distance'
+  };
+  prob.value = presets[ctx] || '';
+  document.getElementById('wa-popup').classList.add('open');
+  setTimeout(function() { document.getElementById('wa-prenom').focus(); }, 100);
+}
+
+function closeWAPopup() {
+  document.getElementById('wa-popup').classList.remove('open');
+}
+
+function sendWAPopup() {
+  var prenom = document.getElementById('wa-prenom').value.trim();
+  var ville = document.getElementById('wa-ville').value.trim();
+  var prob = document.getElementById('wa-prob').value;
+  if (!prenom || !ville || !prob) {
+    alert('Merci de remplir tous les champs.');
+    return;
+  }
+  var msgs = {
+    'essentiel': 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', j\'habite à ' + ville + '. Je suis intéressé(e) par le Pack Essentiel à 17 CHF/mois. Pouvez-vous m\'en dire plus ?',
+    'confort': 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', j\'habite à ' + ville + '. Je suis intéressé(e) par le Pack Confort à 33 CHF/mois. Pouvez-vous m\'en dire plus ?',
+    'serenite': 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', j\'habite à ' + ville + '. Je suis intéressé(e) par le Pack Sérénité à 59 CHF/mois. Pouvez-vous m\'en dire plus ?',
+    'lancement': 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', j\'habite à ' + ville + '. Je souhaite profiter de l\'offre de lancement -20 CHF. Quelles sont vos disponibilités ?',
+    'ems': 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', je représente un établissement à ' + ville + '. Nous souhaitons organiser des ateliers numériques collectifs. Pouvez-vous nous contacter pour un devis ?',
+    'distance': 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', j\'habite à ' + ville + '. Je souhaite une assistance à distance pour : ' + prob + '. Pouvez-vous m\'aider ?'
+  };
+  var txt = msgs[waContext] || ('Bonjour ASI Jura ! Je m\'appelle ' + prenom + ', j\'habite à ' + ville + '. Mon problème : ' + prob + '. Pouvez-vous m\'aider ?');
+  window.open('https://wa.me/41798334552?text=' + encodeURIComponent(txt), '_blank');
+  closeWAPopup();
+  document.getElementById('wa-prenom').value = '';
+  document.getElementById('wa-ville').value = '';
+  document.getElementById('wa-prob').value = '';
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  if (document.querySelector('.hp').value) return;
+  var prenom = document.getElementById('c-prenom').value.trim();
+  var nom = document.getElementById('c-nom').value.trim();
+  var tel = document.getElementById('c-tel').value.trim();
+  var ville = document.getElementById('c-ville').value.trim();
+  var prob = document.getElementById('c-prob').value;
+  var msg = document.getElementById('c-msg').value.trim();
+  if (!prenom || !nom || !tel || !ville) {
+    alert('Merci de remplir tous les champs obligatoires (*).');
+    return;
+  }
+  var txt = 'Bonjour ASI Jura ! Je m\'appelle ' + prenom + ' ' + nom + ', j\'habite à ' + ville + ', mon numéro est le ' + tel + '. Demande : ' + (prob || 'Non précisé') + '. ' + msg;
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours…';
+  window.open('https://wa.me/41798334552?text=' + encodeURIComponent(txt), '_blank');
+  setTimeout(function() {
+    btn.textContent = 'Message envoyé via WhatsApp !';
+    btn.style.background = '#25d366';
+    setTimeout(function() {
+      btn.textContent = 'Envoyer ma demande →';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 5000);
+  }, 400);
+}
+</script>
+</body>
+</html>
